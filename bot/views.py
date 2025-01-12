@@ -2,9 +2,18 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import anthropic
 from .models import Chat
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
+
+
+apikey = os.getenv('API_KEY')
 
 # Create your views here.
-client = anthropic.Anthropic(api_key = "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")
+client = anthropic.Anthropic(api_key = apikey)
+
 
 def ask_ai(message,history):
     message = client.messages.create(
