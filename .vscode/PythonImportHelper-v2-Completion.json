@@ -154,6 +154,15 @@
         "documentation": {}
     },
     {
+        "label": "dj_database_url",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "dj_database_url",
+        "description": "dj_database_url",
+        "detail": "dj_database_url",
+        "documentation": {}
+    },
+    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -256,7 +265,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-!(jmmw!e)ws!heb)8v$5_j&+jadpcn@9h50*kp12^3brail128'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-!(jmmw!e)ws!heb)8v$5_j&+jadpcn@9h50*kp12^3brail128'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -265,7 +274,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-!(jmmw!e)ws!heb)8v$5_j&+jadpcn@9h50*kp12^3brail128'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-!(jmmw!e)ws!heb)8v$5_j&+jadpcn@9h50*kp12^3brail128'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -274,7 +283,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = False\nALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    \"whitenoise.runserver_nostatic\",",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -283,7 +292,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',",
+        "peekOfCode": "ALLOWED_HOSTS = ['*']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    \"whitenoise.runserver_nostatic\",\n    \"django.contrib.staticfiles\",",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -292,7 +301,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'bot'\n]",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    \"whitenoise.runserver_nostatic\",\n    \"django.contrib.staticfiles\",\n    'rest_framework',\n    'bot'",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -301,7 +310,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'chatbot.urls'",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'whitenoise.middleware.WhiteNoiseMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -328,7 +337,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'chatbot.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "peekOfCode": "WSGI_APPLICATION = 'chatbot.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\nDATABASES = {\n'default': dj_database_url.config(default='postgresql://bot_uth2_user:ibFKM7QPLdJCiRKGLI8FidkWDXgMmcU6@dpg-cu4b3c3qf0us73fv2mp0-a.ohio-postgres.render.com/bot_uth2',conn_max_age=600)\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -337,7 +346,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "peekOfCode": "DATABASES = {\n'default': dj_database_url.config(default='postgresql://bot_uth2_user:ibFKM7QPLdJCiRKGLI8FidkWDXgMmcU6@dpg-cu4b3c3qf0us73fv2mp0-a.ohio-postgres.render.com/bot_uth2',conn_max_age=600)\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -355,7 +364,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -364,7 +373,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -373,7 +382,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nif not DEBUG:    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -382,7 +391,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nif not DEBUG:    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)\n    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -391,7 +400,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = '/static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nif not DEBUG:    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)\n    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\n    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use\n    # and renames the files with unique names for each version to support long-term caching\n    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -400,7 +409,16 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSTATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nif not DEBUG:    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)\n    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\n    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use\n    # and renames the files with unique names for each version to support long-term caching\n    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\n# STATICFILES_DIRS = [\n#     os.path.join(BASE_DIR, 'static'),\n# ]",
+        "detail": "chatbot.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "chatbot.settings",
+        "description": "chatbot.settings",
+        "peekOfCode": "STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\nif not DEBUG:    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)\n    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')\n    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use\n    # and renames the files with unique names for each version to support long-term caching\n    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'\n# STATICFILES_DIRS = [\n#     os.path.join(BASE_DIR, 'static'),\n# ]",
         "detail": "chatbot.settings",
         "documentation": {}
     },
