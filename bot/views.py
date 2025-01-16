@@ -4,6 +4,9 @@ import anthropic
 from .models import Chat
 from dotenv import load_dotenv
 import os
+from django.utils import timezone
+from datetime import timedelta
+
 
 
 load_dotenv()
@@ -13,7 +16,6 @@ apikey = os.getenv('API_KEY')
 
 # Create your views here.
 client = anthropic.Anthropic(api_key = apikey)
-
 
 def ask_ai(message,history):
     message = client.messages.create(
@@ -25,6 +27,7 @@ def ask_ai(message,history):
             "Ask one question at a time, starting with basic contact details, followed by professional summary, "
             "skills, work experience, education, certifications, and additional information. "
             "Ensure each question is clear and concise. Provide a friendly and engaging tone."
+            "Only after all sections are completed, output the final resume in html format."
         ),
         messages=[
             {"role": "user", "content": f"{history}"},
@@ -36,7 +39,8 @@ def ask_ai(message,history):
 def chat(request):
     if request.method == 'POST':
         message = request.POST.get('message')
-        history = Chat.objects.all().values()
+        one_hour_ago = timezone.now() - timedelta(hours=1)
+        history = Chat.objects.filter(timestamp__gte=one_hour_ago).values()
         response = ask_ai(message,history)
         Chat.objects.create(message= message, response=response)
         return JsonResponse({'message':message , 'response':response})
