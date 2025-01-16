@@ -337,7 +337,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'chatbot.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\nDATABASES = {\n'default': dj_database_url.config(default='postgresql://bot_uth2_user:ibFKM7QPLdJCiRKGLI8FidkWDXgMmcU6@dpg-cu4b3c3qf0us73fv2mp0-a.ohio-postgres.render.com/bot_uth2',conn_max_age=600)\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "peekOfCode": "WSGI_APPLICATION = 'chatbot.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\nDATABASES = {\n'default': dj_database_url.config(default='postgresql://bot_uth2_user:ibFKM7QPLdJCiRKGLI8FidkWDXgMmcU6@dpg-cu4b3c3qf0us73fv2mp0-a/bot_uth2',conn_max_age=600)\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
         "detail": "chatbot.settings",
         "documentation": {}
     },
@@ -346,7 +346,7 @@
         "kind": 5,
         "importPath": "chatbot.settings",
         "description": "chatbot.settings",
-        "peekOfCode": "DATABASES = {\n'default': dj_database_url.config(default='postgresql://bot_uth2_user:ibFKM7QPLdJCiRKGLI8FidkWDXgMmcU6@dpg-cu4b3c3qf0us73fv2mp0-a.ohio-postgres.render.com/bot_uth2',conn_max_age=600)\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {",
+        "peekOfCode": "DATABASES = {\n'default': dj_database_url.config(default='postgresql://bot_uth2_user:ibFKM7QPLdJCiRKGLI8FidkWDXgMmcU6@dpg-cu4b3c3qf0us73fv2mp0-a/bot_uth2',conn_max_age=600)\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {",
         "detail": "chatbot.settings",
         "documentation": {}
     },

@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'chatbot.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-'default': dj_database_url.config(default='postgresql://bot_uth2_user:ibFKM7QPLdJCiRKGLI8FidkWDXgMmcU6@dpg-cu4b3c3qf0us73fv2mp0-a.ohio-postgres.render.com/bot_uth2',conn_max_age=600)
+'default': dj_database_url.config(default='postgresql://bot_uth2_user:ibFKM7QPLdJCiRKGLI8FidkWDXgMmcU6@dpg-cu4b3c3qf0us73fv2mp0-a/bot_uth2',conn_max_age=600)
 }
 
 
