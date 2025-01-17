@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 import anthropic
-from .models import Chat
+from .models import Chat, Session
 from dotenv import load_dotenv
 import os
 from django.utils import timezone
@@ -39,9 +39,27 @@ def ask_ai(message,history):
 def chat(request):
     if request.method == 'POST':
         message = request.POST.get('message')
-        one_hour_ago = timezone.now() - timedelta(hours=1)
-        history = Chat.objects.filter(timestamp__gte=one_hour_ago).values()
+        session_id = request.POST.get('session_id')
+        session_instance = Session.objects.filter(id = session_id).first()
+        history = Chat.objects.filter(session = session_id).values()
         response = ask_ai(message,history)
-        Chat.objects.create(message= message, response=response)
+        Chat.objects.create(session = session_instance, message= message, response=response)
         return JsonResponse({'message':message , 'response':response})
-    return render(request,"chatbot.html")
+    new_session = Session.objects.create(name = "New Chat")
+    return render(request,"chatbot.html",context={'session_id':new_session.id, 'session_name':new_session.name})
+
+def session(request):
+    if request.method == 'POST':
+        new_session = Session.objects.create(name = "New Chat")
+        return JsonResponse({'session_id':new_session.id, 'session_name':new_session.name})
+    if request.method == 'PATCH':
+        session = Session.objects.filter(id = request.PATCH.get('id')).first()
+        session.updated_at = timezone.now()
+        return JsonResponse({'status':'Successfully updated'})
+    if request.method == 'GET':
+        # Return all sessions ordered by updated_at
+        sessions = list(Session.objects.all().values('id', 'name', 'created_at', 'updated_at'))
+        return JsonResponse({'sessions': sessions}, status=200)
+
+    return JsonResponse({'error': 'Method not allowed.'}, status=405)
+    

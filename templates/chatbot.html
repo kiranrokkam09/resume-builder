@@ -61,11 +61,148 @@
       display: flex;
       flex-direction: column;
     }
+
+      /* The side navigation menu */
+  .sidebar {
+    margin: 2px;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    border-radius: 5px;
+  }
+
+  /* Sidebar links */
+  .sidebar div.links a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 2px;
+  }
+
+  .sidebar div.links
+  {
+    display: block;
+  }
+
+  /* Active/current link */
+  .sidebar div.links a.active {
+    background-color: #333333;
+    color: white;
+  }
+
+  /* Links on mouse-over */
+  .sidebar div.links a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+
+  .sidebar div.header{
+    background-color: #555;
+  }
+
+  /* Page chat-container. The value of the margin-left property should match the value of the sidebar's width property */
+  div.chat-container {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+
+  /* On screens that are less than 700px wide, Hide the sidebar */
+  @media screen and (max-width: 700px){
+    .sidebar{
+      display:none;
+    }
+  }
+
+
+  /* @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar div.links a {float: left;}
+    div.chat-container {margin-left: 0;}
+  } */
+
+
+
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar div.links a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+  .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Push elements to the edges */
+      margin-bottom: 10px;
+    }
+
+    .new-chat-icon {
+      background-color: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* .new-chat-icon:hover {
+      color: #2c3034;
+    } */
+
+  .typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
+    background-color: #ccc;
+    border-radius: 50%;
+    animation: typing 1.5s infinite;
+  }
+
+  .typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes typing {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
   </style>
 {% endblock %}
 
 
 {% block content %}
+<div class = "sidebar">
+  <div class = "header"> 
+  <div class="card-header text-white">History</div>
+  <button class="new-chat-icon" id="newChatButton" title="Start a new chat">
+    <i class="bi bi-plus-square"></i>
+  </button>
+  </div>
+  <div class = links></div>
+</div>
+
 <div class="chat-container">
   <div class="card flex-grow-1">
     <div class="card-header bg-primary text-white">Chat</div>
@@ -79,7 +216,7 @@
               <b>AI Chatbot</b>
             </div>
             <div class="message-content">
-              Hi, I am your AI Chatbot, you can ask me anything.
+              Hi, I’m your AI Resume Expert—here to craft your perfect resume!
             </div>
           </div>
         </li>
@@ -179,40 +316,64 @@
       });
   });
 
-  // Optional: Add a CSS animation for the typing indicator
+  // Logic for adding a new chat session
+  const newChatButton = document.getElementById('newChatButton');
+
+  newChatButton.addEventListener('click', () => {
+  alert("New chat session created!");
+  fetch('session', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      'csrfmiddlewaretoken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      sessionStorage.setItem('sessionId', data.session_id);
+      renderSessions(); // Refresh the session links after creating a new session
+    })
+    .catch(error => {
+      console.error('Error creating session:', error);
+    });
+});
+
+function renderSessions() {
+  fetch('session', {
+    method: 'GET',
+  })
+    .then(response => response.json())
+    .then(data => {
+      const sidebar = document.querySelector('.sidebar div.links');
+      
+      // Clear existing links
+      sidebar.innerHTML = '';
+
+      // Render new linkss
+      data.sessions.forEach(session => {
+        const link = document.createElement('a');
+        link.id = session.id; // Set the id attribute
+        link.textContent = session.name; // Set the visible text
+        link.href = '#'; // Optional: Add href to prevent default link behavior
+        sidebar.appendChild(link);
+      });
+
+      // Add active link functionality
+      const sidebarLinks = document.querySelectorAll('.sidebar div.links a');
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          sidebarLinks.forEach(item => item.classList.remove('active')); // Remove 'active' from all links
+          link.classList.add('active'); // Add 'active' to the clicked link
+        });
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching sessions:', error);
+    });
+}
+
+// Initial rendering of sessions on page load
+renderSessions();
 </script>
-
-<style>
-  .typing-indicator span {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin: 0 2px;
-    background-color: #ccc;
-    border-radius: 50%;
-    animation: typing 1.5s infinite;
-  }
-
-  .typing-indicator span:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-
-  .typing-indicator span:nth-child(3) {
-    animation-delay: 0.4s;
-  }
-
-  @keyframes typing {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-</style>
-
 
 {% endblock %}
